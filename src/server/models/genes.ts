@@ -67,6 +67,7 @@ const GeneSchema = new Schema<Gene>(
     summary: { type: String, required: true },
     hgnc_symbol: { type: String, required: true },
     alias: [{ type: String, required: true }],
+    uniprotkb_accessions: [{ type: String, required: true }],
     is_igap: { type: Boolean, required: true },
     is_eqtl: { type: Boolean, required: true },
     is_any_rna_changed_in_ad_brain: { type: Boolean, required: true },
