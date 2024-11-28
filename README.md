@@ -43,8 +43,8 @@ The next sections focus on setting up a mongo database loaded with Agora's data.
 
 You will need to create a MongoDB database and name it `agora`. 
 
-- [Using the MongoDB Shell](https://www.mongodb.com/basics/create-database#option-2)
-- [Using MongoDB Compass](https://www.mongodb.com/basics/create-database#option-3)
+- [Using the MongoDB Shell](https://www.mongodb.com/resources/products/fundamentals/create-database#using-the-mongodb-shell)
+- [Using MongoDB Compass](https://www.mongodb.com/resources/products/fundamentals/create-database#using-the-mongodb-compass)
 - [Using Studio3T](https://studio3t.com/knowledge-base/articles/common-mongodb-commands/#1-mongodb-create-database)
 
 Note: You can use the following scripts to start the database:

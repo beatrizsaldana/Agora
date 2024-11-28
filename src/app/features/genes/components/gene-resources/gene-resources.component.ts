@@ -9,7 +9,7 @@ import { Gene, ResourceCard } from '../../../../models';
 })
 export class GeneResourcesComponent implements OnInit {
   @Input() gene: Gene | undefined;
-  
+
   additionalResources: ResourceCard[] = [];
   drugDevelopmentResources: ResourceCard[] = [];
 
@@ -34,43 +34,43 @@ export class GeneResourcesComponent implements OnInit {
       {
         title: 'Chemical Probes',
         description:
-          'View expert reviews and evaluations of chemical probes.',
+          'View expert reviews and evaluations of any chemical probes that are available for this target.',
         linkText: 'Visit Chemical Probes',
         link: `https://www.chemicalprobes.org/?q=${this.gene?.hgnc_symbol}`,
       },
       {
         title: 'Open Targets',
         description:
-          'View this gene on Open Targets, a resource that provides evidence on the validity of therapeutic targets based on genome-scale experiments and analysis.',
+          'View evidence on the validity of this therapeutic target based on genome-scale experiments and analysis.',
         linkText: 'Visit Open Targets',
         link: `https://platform.opentargets.org/target/${this.gene?.ensembl_gene_id}`,
       },
       {
         title: 'PharmGKB',
         description:
-          'Search PharmGKB for information on gene-drug and gene-phenotype relationships.',
+          'Search for information on gene-drug and gene-phenotype relationships.',
         linkText: 'Visit PharmGKB',
         link: 'https://www.pharmgkb.org',
       },
       {
         title: 'Pharos',
         description:
-          'View this gene on Pharos, a resource that provides access to the integrated knowledge-base from the Illuminating the Druggable Genome program.',
+          'View information about this target in the Knowledge Management Center for the Illuminating the Druggable Genome program.',
         linkText: 'Visit Pharos',
         link: `https://pharos.nih.gov/targets?q=${this.gene?.ensembl_gene_id}`,
       },
       {
         title: 'Probe Miner',
         description:
-          'Search Probe Miner for information on chemical probes for this gene.',
+          'Search for information on chemical probes based on large-scale, publicly available, medicinal chemistry data.',
         linkText: 'Visit Probe Miner',
         link: 'https://probeminer.icr.ac.uk/#/',
       },
       {
         title: 'Protein Data Bank',
         description:
-          'Search PDB for experimental and computed protin structure information.',
-        linkText: 'Search PDB',
+          'Search for experimental and computed 3D protein structure information.',
+        linkText: 'Visit PDB',
         link: 'https://www.rcsb.org',
       },
     ];
@@ -79,16 +79,9 @@ export class GeneResourcesComponent implements OnInit {
       {
         title: 'AD Atlas',
         description:
-          'View this gene on the AD Atlas site, a network-based resource for investigating AD in a multi-omic context.',
+          'Perform interactive network and enrichment analyses on this target using a heterogenous network of multiomic, association, and endophenotypic data.',
         linkText: 'Visit AD Atlas',
-        link: `https://adatlas.org/?geneID=${this.gene?.ensembl_gene_id}`,
-      },
-      {
-        title: 'Allen Institute Transcriptomics',
-        description:
-          'View single nucleus RNAseq data for this gene using the Allen Institute’s Transcriptomics Comparative Viewer.',
-        linkText: 'Visit AD Transcriptomics Viewer',
-        link: `https://knowledge.brain-map.org/data/5IU4U8BP711TR6KZ843/2CD0HDC5PS6A58T0P6E/compare?geneOption=${this.gene?.hgnc_symbol ?? this.gene?.ensembl_gene_id}`,
+        link: `https://adatlas.org/?type=geneEnsembl&ids=${this.gene?.ensembl_gene_id}`,
       },
       {
         title: 'Alzforum',
@@ -100,62 +93,69 @@ export class GeneResourcesComponent implements OnInit {
       {
         title: 'AlzPED',
         description:
-          'Search AlzPED for information on preclinical efficacy studies of candidate AD therapeutics.',
+          'Search for information on preclinical efficacy studies of candidate AD therapeutics.',
         linkText: 'Visit AlzPED',
         link: 'https://alzped.nia.nih.gov',
       },
       {
-        title: 'AMP-PD Target Explorer', 
-        description: 'View this gene in the AMP-PD Target Explorer, a resource that hosts evidence about whether genes are associated with Parkinson\'s Disease.', 
+        title: 'AMP-PD Target Explorer',
+        description: 'View evidence about whether this target is associated with Parkinson\'s Disease.',
         linkText: 'Visit AMP-PD',
         link: `https://target-explorer.amp-pd.org/genes/target-search?gene=${this.gene?.ensembl_gene_id}`
       },
       {
+        title: 'Brain Knowledge Platform',
+        description:
+          'View single nucleus RNAseq results for this target using the Allen Institute SEA-AD Comparative Viewer.',
+        linkText: 'Visit Brain Knowledge Platform',
+        link: `https://knowledge.brain-map.org/data/5IU4U8BP711TR6KZ843/2CD0HDC5PS6A58T0P6E/compare?geneOption=${this.gene?.hgnc_symbol ?? this.gene?.ensembl_gene_id}`,
+      },
+      {
         title: 'Gene Ontology',
         description:
-          'View the gene ontology information for this gene on Ensembl.',
-        linkText: 'Visit Ensembl',
-        link: `https://www.ensembl.org/Homo_sapiens/Gene/Ontologies/molecular_function?g=${this.gene?.ensembl_gene_id}`,
+          'View the GO terms associated with this target and explore ontology-related tools.',
+        linkText: 'Visit AmiGO 2',
+        link: `https://amigo.geneontology.org/amigo/search/annotation?q=${this.gene?.hgnc_symbol ?? this.gene?.ensembl_gene_id}`,
       },
       {
         title: 'GeneCards',
         description:
-          'Visit GeneCards to view integrated information about this gene.',
+          'View integrated information about this target gathered from a comprehensive collection of public sources.',
         linkText: 'Visit GeneCards',
-        link: `https://www.genecards.org/Search/Keyword?queryString=${this.gene?.ensembl_gene_id}`,
+        link: `https://www.genecards.org/cgi-bin/carddisp.pl?gene=${this.gene?.hgnc_symbol ?? this.gene?.ensembl_gene_id}`,
       },
       {
         title: 'Genomics DB',
         description:
-          'View this gene on the National Institute on Aging Genetics of Alzheimer\'s Disease Data Storage Site (NIAGADS) Genomics Database.',
+          'View information about this target on the National Institute on Aging Genetics of Alzheimer\'s Disease Data Storage Site (NIAGADS) Genomics Database.',
         linkText: 'Visit Genomics DB',
         link: `https://www.niagads.org/genomics/app/record/gene/${this.gene?.ensembl_gene_id}`,
       },
       {
         title: 'Pub AD',
         description:
-          'View dementia-related publication information for this gene on PubAD.',
+          'View dementia-related publication information for this target.',
         linkText: 'Visit PubAD',
         link: `${ this.getPubADLink() }`,
       },
       {
         title: 'Reactome Pathways',
         description:
-          'View the reactome pathway information for this gene on Ensembl.',
+          'View the reactome pathway information for this target on Ensembl.',
         linkText: 'Visit Ensembl',
         link: `https://www.ensembl.org/Homo_sapiens/Gene/Pathway?g=${this.gene?.ensembl_gene_id}`,
       },
       {
         title: 'SEA-AD',
         description:
-          'Explore the Seattle Alzheimer’s Disease Brain Cell Atlas resources.',
+          'Explore the Seattle Alzheimer’s Disease Brain Cell Atlas resources from the Allen Institute.',
         linkText: 'Visit SEA-AD',
         link: 'https://portal.brain-map.org/explore/seattle-alzheimers-disease',
       },
       {
         title: 'UniProtKB',
         description:
-          'View sequence and functional information about the protein(s) encoded by this gene.',
+          'View protein sequence and functional information about this target.',
         linkText: 'Visit UniProtKB',
         link: `https://www.uniprot.org/uniprotkb?query=${this.gene?.ensembl_gene_id}`,
       },

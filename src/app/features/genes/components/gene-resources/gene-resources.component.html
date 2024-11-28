@@ -1,30 +1,3 @@
-<div *ngIf="gene" class="section">
-  <div class="section-inner">
-    <div class="container-sm">
-      <h2>
-        Drug Development Resources
-      </h2>
-      <p class="druggability-description">
-        These external sites provide drug development resources.
-      </p>
-      <div 
-        *ngFor="let r of drugDevelopmentResources; let i = index" 
-        class="row tab-row last-row"
-      >
-        <div class="col-md-3 col-sm-8 col-8 header-title">{{ r.title }}</div>
-        <div class="col-md-3 col-sm-4 col-4 text-center header-link">
-          <a class="additional-resource-links link no-bold" href="{{ r.link }}" target="_blank">{{
-            r.linkText
-          }}</a>
-        </div>
-        <div class="col-md-6 col-sm-12 col-12 header-description">
-          {{ r.description }}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <ng-container *ngIf="gene">
   <div *ngIf="gene.is_tep === true || gene.is_adi === true" class="section">
     <div class="section-inner">
@@ -57,12 +30,39 @@
   </div>
 </ng-container>
 
+<div *ngIf="gene" class="section">
+  <div class="section-inner">
+    <div class="container-sm">
+      <h2>
+        Drug Development Resources
+      </h2>
+      <p class="druggability-description">
+        These external sites provide information and resources related to drug development.
+      </p>
+      <div
+        *ngFor="let r of drugDevelopmentResources; let i = index"
+        class="row tab-row last-row"
+      >
+        <div class="col-md-3 col-sm-8 col-8 header-title">{{ r.title }}</div>
+        <div class="col-md-3 col-sm-4 col-4 text-center header-link">
+          <a class="additional-resource-links link no-bold" href="{{ r.link }}" target="_blank">{{
+              r.linkText
+            }}</a>
+        </div>
+        <div class="col-md-6 col-sm-12 col-12 header-description">
+          {{ r.description }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div *ngIf="additionalResources" class="section">
   <div class="section-inner">
     <div class="container-sm">
       <h2>Additional Resources</h2>
       <p>
-        These external sites provide additional useful information for exploring AD targets.
+        These external sites provide additional information about therapeutic targets for AD and related dementias.
       </p>
       <div
         *ngFor="let r of additionalResources; let i = index"
