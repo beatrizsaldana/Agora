@@ -18,35 +18,35 @@
         <hr />
         <div *ngIf="gene.bio_domains" class="gene-hero-biodomains">
           <h4 class="gene-hero-biodomains-heading">Biological Domains</h4>
-          <p>
-            &nbsp; {{ getBiodomains() }}
+          <p class="aliases">
+            {{ getBiodomains() }}
           </p>
         </div>
         <div class="gene-hero-aliases">
           <h4 class="gene-hero-aliases-heading">Also known as</h4>
           <ng-container *ngIf="getEnsemblUrl() !== ''">
             <p class="aliases">
-              &nbsp;  <a [href]="getEnsemblUrl()" target="_blank">{{ gene.ensembl_gene_id }}</a>
+              <a [href]="getEnsemblUrl()" target="_blank">{{ gene.ensembl_gene_id }}</a>
               <span *ngIf="gene.ensembl_info.ensembl_release">
                 (Ensembl Release {{ gene.ensembl_info.ensembl_release }})
               </span>
             </p>
           </ng-container>
-          <p *ngIf="getEnsemblUrl() === ''">
-            &nbsp; <span *ngIf="getEnsemblUrl() === ''">{{ gene.ensembl_gene_id }}</span>
+          <p *ngIf="getEnsemblUrl() === ''" class="aliases">
+            <span *ngIf="getEnsemblUrl() === ''">{{ gene.ensembl_gene_id }}</span>
           </p>
           <p *ngIf="gene.ensembl_info.ensembl_possible_replacements.length > 0" class="aliases">
-            &nbsp; <a [href]="getPossibleReplacementsURL()">Possible replacement value<span *ngIf="gene.ensembl_info.ensembl_possible_replacements.length > 1">s</span></a>:
+            <a [href]="getPossibleReplacementsURL()">Possible replacement value<span *ngIf="gene.ensembl_info.ensembl_possible_replacements.length > 1">s</span></a>:
             {{ gene.ensembl_info.ensembl_possible_replacements.join(', ')}}
           </p>
           <p *ngIf="gene.uniprotkb_accessions" class="aliases">
-            &nbsp; UNIPROTKB 
+            UNIPROTKB 
             <ng-container *ngFor="let accession of gene.uniprotkb_accessions; let isLast = last" class="aliases">
               <a [href]="getUniProtKBLink(accession)" target="_blank">{{ accession }}</a><span *ngIf="!isLast">, </span>
             </ng-container>
           </p>
           <p *ngIf="gene.alias.length > 0" class="aliases">
-            &nbsp; {{ getAliases() }}
+            {{ getAliases() }}
           </p>
         </div>
       </ng-container>
