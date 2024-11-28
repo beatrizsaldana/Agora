@@ -55,6 +55,7 @@ export interface Gene {
   summary: string;
   hgnc_symbol: string;
   alias: string[];
+  uniprotkb_accessions: string[];
   is_igap: boolean;
   is_eqtl: boolean;
   is_any_rna_changed_in_ad_brain: boolean;
